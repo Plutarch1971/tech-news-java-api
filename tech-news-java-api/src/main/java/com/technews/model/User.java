@@ -26,7 +26,7 @@ public class User implements Serializable {
     boolean loggedIn;
 
     @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Post> post;
+    private List<Post> posts;
 
     @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Vote> votes;
@@ -57,7 +57,7 @@ public class User implements Serializable {
     public String getEmail(){
         return email;
     }
-    public String setEmail(String email){
+    public void setEmail(String email){
         this.email = email;
     }
     public String getPassword(){
