@@ -7,7 +7,8 @@ import com.technews.repository.PostRepository;
 import com.technews.repository.UserRepository;
 import com.technews.repository.VoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
+//import org.springframework.http.HttpRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -52,7 +53,7 @@ public class PostController {
     }
 
     @PutMapping("/api/posts/upvote")
-    public String upVote(@RequestBody Vote vote, HttpRequest request){
+    public String upVote(@RequestBody Vote vote, HttpServletRequest request){
         String returnValue = "";
         if( request.getSession(false) != null) {
             Post returnPost = null;
