@@ -62,6 +62,7 @@ public class TechNewsController {
 
         return "redirect:/dashboard";
     }
+
     @PostMapping("/users")
     public String signup(@ModelAttribute User user, Model model, HttpServletRequest request) throws Exception {
 
@@ -95,39 +96,6 @@ public class TechNewsController {
 
         return "redirect:/dashboard";
     }
-//    @PostMapping("/users")
-//    public String signup(@ModelAttribute User user, Model model, HttpServletRequest request) throws Exception {
-//
-//        if ((user.getUsername().equals(null) || user.getUsername().isEmpty()) || (user.getPassword().equals(null) || user.getPassword().isEmpty()) || (user.getEmail().equals(null) || user.getPassword().isEmpty())) {
-//            model.addAttribute("notice", "In order to signup username, email address and password must be populated!");
-//            return "login";
-//        }
-//
-//        try {
-//            // Encrypt password
-//            user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
-//            userRepository.save(user);
-//        } catch (DataIntegrityViolationException e) {
-//            model.addAttribute("notice", "Email address is not available! Please choose a different unique email address.");
-//            return "login";
-//        }
-//
-//        User sessionUser = userRepository.findUserByEmail(user.getEmail());
-//
-//        try {
-//            if (sessionUser.equals(null)) {
-//
-//            }
-//        } catch (NullPointerException e) {
-//            model.addAttribute("notice", "User is not recognized!");
-//            return "login";
-//        }
-//
-//        sessionUser.setLoggedIn(true);
-//        request.getSession().setAttribute("SESSION_USER", sessionUser);
-//
-//        return "redirect:/dashboard";
-//    }
     @PostMapping("/posts")
     public String addPostDashboardPage(@ModelAttribute Post post, Model model, HttpServletRequest request) {
 
